@@ -1,31 +1,24 @@
 {
-  "name": "global-policy-detector",
+  "name": "us-privacy-law-comparison",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@amcharts/amcharts5": "^5.10.5",
-    "@amcharts/amcharts5-geodata": "^5.1.4",
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "express": "^4.21.2",
+    "d3-geo": "^3.1.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.2",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "react-simple-maps": "^3.0.0",
+    "us-atlas": "^3.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
-    "start:backend": "cd src/backend && python api.py",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "react-scripts test"
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "react-app"
     ]
   },
   "browserslist": {

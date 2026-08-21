@@ -1,132 +1,69 @@
 .home-page {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .home-content {
-    flex-grow: 1;
-    padding: 2rem;
-  }
-  
-  .content-wrapper {
-    display: flex;
-  }
-  
-  .globe {
-    width: 60%;
-    height: 500px;
-  }
-  
-  .country-info {
-    width: 35%;
-    margin-left: auto;
-    padding: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    overflow-y: auto;
-    max-height: 500px;
-  }
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  color: #111827;
+}
 
-  .loading-text, .error-text, .no-news {
-    font-size: 0.9rem;
-    color: #666;
-    margin-top: 0.5rem;
-  }
+.home-main {
+  flex: 1;
+  padding: 2.5rem 1.5rem 4rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
 
-  .error-text { color: #c0392b; }
+.hero {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
 
-  /* AI Summary box */
-  .ai-summary {
-    background: #eef4ff;
-    border-left: 3px solid #3b82f6;
-    border-radius: 6px;
-    padding: 0.75rem 1rem;
-    margin-bottom: 1rem;
-  }
+.hero h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0 0 0.75rem;
+  color: #000;
+  letter-spacing: -0.01em;
+}
 
-  .ai-summary p {
-    margin: 0.4rem 0 0;
-    font-size: 0.88rem;
-    line-height: 1.5;
-    color: #333;
-  }
+.hero p {
+  font-size: 1.125rem;
+  color: #4b5563;
+  margin: 0;
+}
 
-  .ai-badge {
-    font-size: 0.7rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #3b82f6;
-  }
+.comparison-section {
+  margin-top: 2rem;
+}
 
-  /* Top headlines */
-  .top-headlines h4 {
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #888;
-    margin: 0 0 0.6rem;
-  }
+.editorial-line {
+  max-width: 800px;
+  margin: 1.25rem auto 0;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: #374151;
+  text-align: center;
+  line-height: 1.5;
+}
 
-  .headline-card {
-    display: block;
-    background: #fff;
-    border: 1px solid #e5e7eb;
-    border-radius: 8px;
-    padding: 0.75rem;
-    margin-bottom: 0.6rem;
-    text-decoration: none;
-    color: inherit;
-    transition: box-shadow 0.15s ease, border-color 0.15s ease;
-  }
+.site-footer {
+  border-top: 1px solid #e5e7eb;
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
 
-  .headline-card:hover {
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    border-color: #3b82f6;
-  }
+.site-footer a {
+  color: #374151;
+  text-decoration: underline;
+}
 
-  .card-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 0.4rem;
-  }
-
-  .score-badge {
-    font-size: 0.68rem;
-    font-weight: 700;
-    background: #dcfce7;
-    color: #15803d;
-    border-radius: 4px;
-    padding: 2px 6px;
-  }
-
-  .category-tag {
-    display: inline-block;
-    font-size: 0.68rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    background: #dbeafe;
-    color: #1d4ed8;
-    border-radius: 4px;
-    padding: 2px 6px;
-    margin-bottom: 0.4rem;
-  }
-
-  .card-title {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #111;
-    margin: 0 0 0.3rem;
-    line-height: 1.35;
-  }
-
-  .card-meta {
-    font-size: 0.75rem;
-    color: #9ca3af;
-    margin: 0;
-  }
+@media (max-width: 640px) {
+  .hero h1 { font-size: 1.75rem; }
+  .hero p  { font-size: 1rem; }
+  .home-main { padding: 1.5rem 1rem 3rem; }
+}

@@ -1,70 +1,78 @@
-# Getting Started with Create React App
+# US Privacy Law Comparison
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An interactive US map that lets anyone click two states and see how their comprehensive consumer data privacy laws compare, with disagreements highlighted so the "patchwork problem" is obvious at a glance.
 
-## Available Scripts
+## What it does
 
-In the project directory, you can run:
+- **Map**: all 50 states, colored by law status — green (comprehensive law in effect), yellow (passed, not yet in effect), gray (no comprehensive law).
+- **Comparison**: click two states → a side-by-side table appears with 9 provisions. Rows where the two states disagree are highlighted in yellow (`#FEF3C7`).
+- **Editorial line**: when the two selections produce a striking contrast (one has no law, they differ on private right of action, or they disagree on 3+ provisions), a one-line explanation appears beneath the table.
+- **Glossary**: `/glossary` page with plain-English definitions for the legal terms; field labels in the comparison table link to the anchor for that term.
 
-### `npm start`
+## Run locally
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```bash
+npm install
+npm start
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Then open http://localhost:3000.
 
-### `npm test`
+Build a production bundle:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+npm run build
+```
 
-### `npm run build`
+## Updating the data
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+All state data lives in `src/data/states.json`. Each entry is keyed by the state's USPS two-letter code and has this shape:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```json
+{
+  "CA": {
+    "name": "California",
+    "status": "active",
+    "lawName": "California Consumer Privacy Act (CCPA/CPRA)",
+    "effectiveDate": "January 2020",
+    "appliesTo": "$25M+ revenue OR 100K+ consumers OR 50%+ revenue from selling data",
+    "rightToDelete": true,
+    "rightToOptOutProfiling": true,
+    "privateRightOfAction": "limited",
+    "universalOptOut": true,
+    "curePeriod": "None",
+    "enforcement": "AG + California Privacy Protection Agency"
+  }
+}
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Field reference:
 
-### `npm run eject`
+| Field | Type | Notes |
+| --- | --- | --- |
+| `name` | string | Full state name shown on chips and column headers |
+| `status` | `"active"` \| `"pending"` \| `"none"` | Drives the map color (green / yellow / gray) |
+| `lawName` | string | Short statute name, use `"No comprehensive privacy law"` for `"none"` states |
+| `effectiveDate` | string | Human-readable (e.g. `"January 2020"`); use `"—"` for none |
+| `appliesTo` | string | Short business-applicability phrase; `"—"` for none |
+| `rightToDelete` | boolean | Renders ✓ / ✗ |
+| `rightToOptOutProfiling` | boolean | Renders ✓ / ✗ |
+| `privateRightOfAction` | `"full"` \| `"limited"` \| `"no"` | ✓, ✓ (limited), or ✗ — two states only "match" on this field when the string is identical |
+| `universalOptOut` | boolean | GPC support requirement |
+| `curePeriod` | string | e.g. `"30 days"`, `"None"`, `"—"` |
+| `enforcement` | string | e.g. `"AG only"`, `"AG + dedicated agency"` |
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**Diff rule:** the comparison table uses raw equality per field to decide which rows to highlight. Strings are compared as-is, booleans as booleans. Keep values consistent (`"None"` vs `"none"` will count as differing).
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+After updating `states.json`, update `src/data/lastUpdated.js` so the footer date reflects the change.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Data sources
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+State law statuses and provisions are compiled from the [IAPP US State Privacy Legislation Tracker](https://iapp.org/resources/article/us-state-privacy-legislation-tracker/) and [Mayer Brown's State Privacy Trackers](https://www.mayerbrown.com/en/insights/publications). This tool is a summary aggregator and is **not legal advice**.
 
-## Learn More
+## Stack
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Create React App (`react-scripts` 5)
+- `react-router-dom` for routing
+- `react-simple-maps` + `us-atlas` for the flat US map (TopoJSON bundled — no runtime CDN)
+- Plain CSS (no Tailwind); all data ships static

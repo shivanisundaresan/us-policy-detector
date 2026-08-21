@@ -1,0 +1,55 @@
+.glossary-page {
+  min-height: 100vh;
+  background: #fff;
+  color: #111827;
+}
+
+.glossary-main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 5rem;
+}
+
+.glossary-main h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  color: #000;
+}
+
+.glossary-intro {
+  color: #4b5563;
+  margin: 0 0 2.5rem;
+  font-size: 1.05rem;
+}
+
+.glossary-term {
+  scroll-margin-top: 90px;
+  padding: 1.5rem 0;
+  border-top: 1px solid #e5e7eb;
+}
+
+.glossary-term:target h2 {
+  color: #000;
+}
+
+.glossary-term:target {
+  background: #FEF3C7;
+  border-radius: 8px;
+  padding: 1.5rem 1rem;
+  margin: 0 -1rem;
+}
+
+.glossary-term h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  color: #111827;
+}
+
+.glossary-term p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #374151;
+}
