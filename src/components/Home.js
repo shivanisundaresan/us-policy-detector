@@ -94,10 +94,7 @@ function Home() {
     setPolicyInfo("");
     
     try {
-        const analyzer = new TechPolicyAnalyzer(
-            process.env.REACT_APP_NEWS_API_KEY,
-            country
-        );
+        const analyzer = new TechPolicyAnalyzer(country);
         const data = await analyzer.generateReport();
         setPolicyInfo(data);
     } catch (error) {
