@@ -1,0 +1,132 @@
+.home-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .home-content {
+    flex-grow: 1;
+    padding: 2rem;
+  }
+  
+  .content-wrapper {
+    display: flex;
+  }
+  
+  .globe {
+    width: 60%;
+    height: 500px;
+  }
+  
+  .country-info {
+    width: 35%;
+    margin-left: auto;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    overflow-y: auto;
+    max-height: 500px;
+  }
+
+  .loading-text, .error-text, .no-news {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 0.5rem;
+  }
+
+  .error-text { color: #c0392b; }
+
+  /* AI Summary box */
+  .ai-summary {
+    background: #eef4ff;
+    border-left: 3px solid #3b82f6;
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .ai-summary p {
+    margin: 0.4rem 0 0;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: #333;
+  }
+
+  .ai-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #3b82f6;
+  }
+
+  /* Top headlines */
+  .top-headlines h4 {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #888;
+    margin: 0 0 0.6rem;
+  }
+
+  .headline-card {
+    display: block;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 0.75rem;
+    margin-bottom: 0.6rem;
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow 0.15s ease, border-color 0.15s ease;
+  }
+
+  .headline-card:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-color: #3b82f6;
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.4rem;
+  }
+
+  .score-badge {
+    font-size: 0.68rem;
+    font-weight: 700;
+    background: #dcfce7;
+    color: #15803d;
+    border-radius: 4px;
+    padding: 2px 6px;
+  }
+
+  .category-tag {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    background: #dbeafe;
+    color: #1d4ed8;
+    border-radius: 4px;
+    padding: 2px 6px;
+    margin-bottom: 0.4rem;
+  }
+
+  .card-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #111;
+    margin: 0 0 0.3rem;
+    line-height: 1.35;
+  }
+
+  .card-meta {
+    font-size: 0.75rem;
+    color: #9ca3af;
+    margin: 0;
+  }
